@@ -26,14 +26,14 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       FormLogin: {
         username: 'admin',
         password: '123456'
       }
     }
-  },
+  }
 }
 </script>
 <style lang="less" scoped>
