@@ -11,7 +11,7 @@
     </el-header>
     <el-container>
       <!-- 判断开关是否打开 打开宽度56px  关闭宽度200px -->
-      <el-aside width="iscollapse ? 64px:200px">
+      <el-aside :width="iscollapse ? '64px':'200px'">
         <!-- <el-aside width="200px"> -->
         <!-- 收缩按钮 -->
         <div @click="collapse">|||</div>
