@@ -24,6 +24,7 @@
           :collapse="iscollapse"
           :collapse-transition="false"
           router
+          :default-active="activePath"
         >
           <!-- router 打开路由跳转 index属性值就是跳转地址 -->
           <el-submenu :index="'/'+item.path" v-for="item in menuarr" :key="item.id">
@@ -36,6 +37,7 @@
               :index="'/'+submenu.path"
               v-for="submenu in item.children"
               :key="submenu.id"
+              @click="getUrlpath('/'+item.path)"
             >
               <i class="el-icon-menu"></i>
               {{submenu.authName}}
@@ -63,11 +65,14 @@ export default {
         '145': 'iconfont icon-baobiao'
       },
       //   控制侧导航栏 开关
-      iscollapse: false
+      iscollapse: false,
+      // 保留子菜单激活状态
+      activePath: ''
     }
   },
   created() {
     this.getmenu()
+    this.activePath = window.sessionStorage.getItem('path')
   },
   methods: {
     loginout() {
@@ -82,6 +87,11 @@ export default {
     collapse() {
       // flase 关闭 true 打开
       this.iscollapse = !this.iscollapse
+    },
+    // 保存子菜单激活状态
+    getUrlpath(path) {
+      window.sessionStorage.setItem('path', path)
+      this.activePath = path
     }
   }
 }

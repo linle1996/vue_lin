@@ -5,11 +5,13 @@ import Login from './components/login.vue'
 import Home from './components/home.vue'
 // 导入Welcome页面
 import Welcome from './components/Welcome.vue'
+// 导入users 页面
+import Users from './components/user/users.vue'
 Vue.use(Router)
 // 设置导航卫士
 const router = new Router({
   // eslint-disable-next-line standard/object-curly-even-spacing
-  routes: [{ path: '/', redirect: 'login' }, { path: '/login', component: Login }, { path: '/home', redirect: '/welcome', component: Home, children: [{ path: '/welcome', component: Welcome }] }]
+  routes: [{ path: '/', redirect: 'login' }, { path: '/login', component: Login }, { path: '/home', redirect: '/welcome', component: Home, children: [{ path: '/welcome', component: Welcome }, { path: '/users', component: Users }] }]
 })
 router.beforeEach((to, from, next) => {
   // 要是登录页面 就可以进去

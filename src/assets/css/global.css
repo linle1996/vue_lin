@@ -1,5 +1,16 @@
-html,body,#app {
+html,
+body,
+#app {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+.el-breadcrumb {
+  padding-bottom: 15px;
+}
+.el-row {
+  padding-bottom: 15px;
+}
+.el-table {
+  margin-bottom: 15px;
 }
